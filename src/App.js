@@ -1,17 +1,17 @@
-import './index.css';
-import Body from './components/Body';
-import { Provider } from 'react-redux';
-import appStore from './utils/appStore';
+import "./index.css";
+import Body from "./components/Body";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 function App() {
-  return (
+  
 
+  return (
     <Provider store={appStore}>
-      <Body/>
+      <div className="overflow-x-hidden">
+        <Body />
+      </div>
     </Provider>
-    
-   
-   
   );
 }
 
