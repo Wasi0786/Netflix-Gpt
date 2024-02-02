@@ -1,13 +1,14 @@
 import React from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { useEffect } from "react";
 import { netflixLogo } from "../utils/constants";
+// import { removeUser } from "../utils/userSlice";
 
 
 const Header = () => {
@@ -18,9 +19,11 @@ const Header = () => {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
+          dispatch(removeUser());
+          navigate('/');
       })
       .catch((error) => {
-        navigate("/error")
+        // navigate("/error")
       });
   };
 
@@ -49,11 +52,12 @@ const Header = () => {
 
   return (
     <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
-      <img
+     <Link to="/"> <img
         className="w-48"
         src={netflixLogo}
         alt="netflix-logo"
       />
+      </Link>
 
     { user && <div className="flex p-2 items-center space-x-1">
         <img
