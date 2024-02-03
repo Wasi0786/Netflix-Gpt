@@ -26,6 +26,7 @@ const useMovieTrailer = (movieId) => {
   };
   useEffect(() => {
     getMoviesVideo();
+    // eslint-disable-next-line 
   }, []);
 };
 

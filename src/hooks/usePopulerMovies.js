@@ -19,6 +19,7 @@ const usePopulerMovies = () => {
 
   useEffect(() => {
     getPopulerMovies();
+    // eslint-disable-next-line 
   }, []);
 };
 
